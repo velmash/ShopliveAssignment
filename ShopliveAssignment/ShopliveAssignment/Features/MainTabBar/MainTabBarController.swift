@@ -24,5 +24,4 @@ class MainTabBarController: UITabBarController {
         
         viewControllers = [searchVC, favoriteVC]
     }
-
 }
