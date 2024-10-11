@@ -7,12 +7,11 @@
 
 import UIKit
 
-class FavoriteViewController: UIViewController {
+class FavoriteViewController: BaseViewController<FavoriteView> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .red
     }
 }
 

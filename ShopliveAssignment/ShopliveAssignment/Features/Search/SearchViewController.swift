@@ -7,12 +7,11 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: BaseViewController<SearchView> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .yellow
     }
 }
 
