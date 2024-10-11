@@ -7,7 +7,7 @@ Packages
 xcuserdata
 DerivedData/
 *.xcodeproj
-
+*.xcuserstate
 
 ### SwiftPM ###
 
