@@ -6,6 +6,21 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3A4019F22CB95E32003794E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4019E32CB95E32003794E3 /* SceneDelegate.swift */; };
+		3A4019F32CB95E32003794E3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4019EF2CB95E32003794E3 /* SearchViewController.swift */; };
+		3A4019F52CB95E32003794E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A4019E92CB95E32003794E3 /* Assets.xcassets */; };
+		3A4019F62CB95E32003794E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A4019EB2CB95E32003794E3 /* LaunchScreen.storyboard */; };
+		3A4019F92CB95E77003794E3 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4019F82CB95E77003794E3 /* FavoriteViewController.swift */; };
+		3A401A2C2CB95F25003794E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A401A2B2CB95F25003794E3 /* AppDelegate.swift */; };
+		3A401A302CB95F53003794E3 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A401A2F2CB95F53003794E3 /* MainTabBarController.swift */; };
+		3A401A332CB961C6003794E3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 3A401A322CB961C6003794E3 /* SnapKit */; };
+		3A401A362CB961F4003794E3 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A401A352CB961F4003794E3 /* BaseView.swift */; };
+		3A401A382CB9620B003794E3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A401A372CB9620B003794E3 /* BaseViewController.swift */; };
+		3A401A3A2CB96381003794E3 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A401A392CB96381003794E3 /* SearchView.swift */; };
+		3A401A3E2CB963CD003794E3 /* FavoriteViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A401A3D2CB963CD003794E3 /* FavoriteViews.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		3A4019A82CB942F4003794E3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,27 +42,21 @@
 		3A4019912CB942F2003794E3 /* ShopliveAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopliveAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A4019A72CB942F4003794E3 /* ShopliveAssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShopliveAssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A4019B12CB942F4003794E3 /* ShopliveAssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShopliveAssignmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A4019E22CB95E32003794E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3A4019E32CB95E32003794E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3A4019E92CB95E32003794E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3A4019EA2CB95E32003794E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3A4019EF2CB95E32003794E3 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		3A4019F82CB95E77003794E3 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		3A401A2B2CB95F25003794E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3A401A2F2CB95F53003794E3 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		3A401A352CB961F4003794E3 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		3A401A372CB9620B003794E3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		3A401A392CB96381003794E3 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		3A401A3D2CB963CD003794E3 /* FavoriteViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		3A4019B92CB942F4003794E3 /* Exceptions for "ShopliveAssignment" folder in "ShopliveAssignment" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 3A4019902CB942F2003794E3 /* ShopliveAssignment */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		3A4019932CB942F2003794E3 /* ShopliveAssignment */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				3A4019B92CB942F4003794E3 /* Exceptions for "ShopliveAssignment" folder in "ShopliveAssignment" target */,
-			);
-			path = ShopliveAssignment;
-			sourceTree = "<group>";
-		};
 		3A4019AA2CB942F4003794E3 /* ShopliveAssignmentTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = ShopliveAssignmentTests;
@@ -65,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A401A332CB961C6003794E3 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +98,7 @@
 		3A4019882CB942F2003794E3 = {
 			isa = PBXGroup;
 			children = (
-				3A4019932CB942F2003794E3 /* ShopliveAssignment */,
+				3A4019F02CB95E32003794E3 /* ShopliveAssignment */,
 				3A4019AA2CB942F4003794E3 /* ShopliveAssignmentTests */,
 				3A4019B42CB942F4003794E3 /* ShopliveAssignmentUITests */,
 				3A4019922CB942F2003794E3 /* Products */,
@@ -103,6 +113,97 @@
 				3A4019B12CB942F4003794E3 /* ShopliveAssignmentUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3A4019E42CB95E32003794E3 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3A401A342CB961E4003794E3 /* Common */,
+				3A401A2B2CB95F25003794E3 /* AppDelegate.swift */,
+				3A4019E32CB95E32003794E3 /* SceneDelegate.swift */,
+				3A4019E22CB95E32003794E3 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		3A4019E52CB95E32003794E3 /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				3A401A2F2CB95F53003794E3 /* MainTabBarController.swift */,
+			);
+			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		3A4019E62CB95E32003794E3 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				3A4019F82CB95E77003794E3 /* FavoriteViewController.swift */,
+				3A401A3C2CB963BB003794E3 /* Views */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
+		3A4019E72CB95E32003794E3 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				3A4019EF2CB95E32003794E3 /* SearchViewController.swift */,
+				3A401A3B2CB963B0003794E3 /* Views */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		3A4019E82CB95E32003794E3 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				3A4019E52CB95E32003794E3 /* MainTabBar */,
+				3A4019E72CB95E32003794E3 /* Search */,
+				3A4019E62CB95E32003794E3 /* Favorite */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		3A4019EC2CB95E32003794E3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3A4019E92CB95E32003794E3 /* Assets.xcassets */,
+				3A4019EB2CB95E32003794E3 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3A4019F02CB95E32003794E3 /* ShopliveAssignment */ = {
+			isa = PBXGroup;
+			children = (
+				3A4019E42CB95E32003794E3 /* App */,
+				3A4019E82CB95E32003794E3 /* Features */,
+				3A4019EC2CB95E32003794E3 /* Resources */,
+			);
+			path = ShopliveAssignment;
+			sourceTree = "<group>";
+		};
+		3A401A342CB961E4003794E3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3A401A372CB9620B003794E3 /* BaseViewController.swift */,
+				3A401A352CB961F4003794E3 /* BaseView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		3A401A3B2CB963B0003794E3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3A401A392CB96381003794E3 /* SearchView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3A401A3C2CB963BB003794E3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3A401A3D2CB963CD003794E3 /* FavoriteViews.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,11 +221,9 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				3A4019932CB942F2003794E3 /* ShopliveAssignment */,
-			);
 			name = ShopliveAssignment;
 			packageProductDependencies = (
+				3A401A322CB961C6003794E3 /* SnapKit */,
 			);
 			productName = ShopliveAssignment;
 			productReference = 3A4019912CB942F2003794E3 /* ShopliveAssignment.app */;
@@ -208,6 +307,9 @@
 			);
 			mainGroup = 3A4019882CB942F2003794E3;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				3A401A312CB961C6003794E3 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3A4019922CB942F2003794E3 /* Products */;
 			projectDirPath = "";
@@ -225,6 +327,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A4019F52CB95E32003794E3 /* Assets.xcassets in Resources */,
+				3A4019F62CB95E32003794E3 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +353,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A401A2C2CB95F25003794E3 /* AppDelegate.swift in Sources */,
+				3A4019F22CB95E32003794E3 /* SceneDelegate.swift in Sources */,
+				3A401A302CB95F53003794E3 /* MainTabBarController.swift in Sources */,
+				3A401A3E2CB963CD003794E3 /* FavoriteViews.swift in Sources */,
+				3A401A362CB961F4003794E3 /* BaseView.swift in Sources */,
+				3A401A3A2CB96381003794E3 /* SearchView.swift in Sources */,
+				3A4019F92CB95E77003794E3 /* FavoriteViewController.swift in Sources */,
+				3A401A382CB9620B003794E3 /* BaseViewController.swift in Sources */,
+				3A4019F32CB95E32003794E3 /* SearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +394,17 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		3A4019EB2CB95E32003794E3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A4019EA2CB95E32003794E3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		3A4019BB2CB942F4003794E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -291,12 +415,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FP8CB3BY93;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ShopliveAssignment/Info.plist;
+				INFOPLIST_FILE = ShopliveAssignment/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -323,12 +447,12 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FP8CB3BY93;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ShopliveAssignment/Info.plist;
+				INFOPLIST_FILE = ShopliveAssignment/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -577,6 +701,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3A401A312CB961C6003794E3 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3A401A322CB961C6003794E3 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A401A312CB961C6003794E3 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3A4019892CB942F2003794E3 /* Project object */;
 }
