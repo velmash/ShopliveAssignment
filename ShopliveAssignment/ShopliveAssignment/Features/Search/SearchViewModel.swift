@@ -6,36 +6,43 @@
 //
 
 import Foundation
+import Combine
 
+// ViewModel
 class SearchViewModel {
+    @Published private(set) var characters: [Character] = []
+    @Published private(set) var error: Error?
+    
     private var searchTask: DispatchWorkItem?
     
-    func searchCharacters(nameStartsWith: String, completion: @escaping ([Character]) -> Void) {
-        // 이전 검색 작업 취소
+    func searchCharacters(nameStartsWith: String) {
         searchTask?.cancel()
-        MarvelAPI.shared.cancelCurrentSearch()
         
-        // 새로운 검색 작업 생성
+        guard nameStartsWith.count >= 2 else {
+            characters = []
+            return
+        }
+        
+        error = nil
+        
         let task = DispatchWorkItem { [weak self] in
-            MarvelAPI.shared.searchCharacters(nameStartsWith: nameStartsWith) { result in
-                switch result {
-                case .success(let characters):
-                    DispatchQueue.main.async {
-                        completion(characters)
-                    }
-                case .failure(let error):
-                    print("Error: \(error.localizedDescription)")
-                    DispatchQueue.main.async {
-                        completion([])
+            MarvelAPI.shared.searchCharacters(nameStartsWith: nameStartsWith) { [weak self] result in
+                guard let self = self else { return }
+                
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let characters):
+                        self.characters = characters
+                    case .failure(let error):
+                        self.error = error
+                        self.characters = []
                     }
                 }
             }
         }
         
-        // 검색 작업 저장
         searchTask = task
         
-        // 0.3초 후에 검색 작업 실행
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: task)
     }
 }
