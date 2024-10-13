@@ -12,11 +12,13 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tabBar.backgroundColor = .white
         setupViewControllers()
     }
     
     private func setupViewControllers() {
         let searchVC = SearchViewController()
+        searchVC.viewModel = SearchViewModel()
         searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         
         let favoriteVC = FavoriteViewController()
