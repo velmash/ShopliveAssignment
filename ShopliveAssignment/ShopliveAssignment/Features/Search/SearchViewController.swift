@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 class SearchViewController: BaseViewController<SearchView> {
-    private var viewModel = SearchViewModel()
+    var viewModel: SearchViewModel?
     private var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
@@ -20,6 +20,8 @@ class SearchViewController: BaseViewController<SearchView> {
     }
     
     private func setupBindings() {
+        guard let viewModel = viewModel else { return }
+        
         viewModel.$characters
             .receive(on: DispatchQueue.main)
             .sink { [weak self] characters in
@@ -49,7 +51,7 @@ class SearchViewController: BaseViewController<SearchView> {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.searchCharacters(nameStartsWith: searchText)
+        viewModel?.searchCharacters(nameStartsWith: searchText)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

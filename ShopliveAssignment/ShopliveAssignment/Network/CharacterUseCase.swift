@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class MarvelAPI {
     static let shared = MarvelAPI()
@@ -13,21 +14,14 @@ class MarvelAPI {
     
     private init() {}
     
-    func searchCharacters(nameStartsWith: String, completion: @escaping (Result<[Character], Error>) -> Void) {
+    func searchCharacters(nameStartsWith: String) -> AnyPublisher<[Character], Error> {
         let endpoint = "/characters"
         let parameters = ["nameStartsWith": nameStartsWith]
         
-        client.run(endpoint: endpoint, parameters: parameters) { (result: Result<MarvelResponse<Character>, Error>) in
-            switch result {
-            case .success(let response):
-                completion(.success(response.data.results))
-            case .failure(let error):
-                completion(.failure(error))
+        return client.run(endpoint: endpoint, parameters: parameters)
+            .map { (response: MarvelResponse<Character>) in
+                response.data.results
             }
-        }
-    }
-    
-    func cancelCurrentSearch() {
-        client.cancelCurrentTask()
+            .eraseToAnyPublisher()
     }
 }

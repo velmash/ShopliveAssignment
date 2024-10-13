@@ -5,6 +5,7 @@
 //  Created by 윤형찬 on 10/13/24.
 //
 
+import Combine
 import Foundation
 import CryptoKit
 
@@ -14,18 +15,13 @@ class MarvelAPIClient {
     let privateKey: String
     let baseURL: String
     
-    private var currentTask: URLSessionDataTask?
-    
     init() {
         self.publicKey = Bundle.main.object(forInfoDictionaryKey: "PublicKey") as! String
         self.privateKey = Bundle.main.object(forInfoDictionaryKey: "PrivateKey") as! String
         self.baseURL = "https://gateway.marvel.com:443/v1/public"
     }
     
-    func run<T: Codable>(endpoint: String, parameters: [String: String] = [:], completion: @escaping (Result<T, Error>) -> Void) {
-        // 기존 태스크가 있다면 취소
-        cancelCurrentTask()
-        
+    func run<T: Codable>(endpoint: String, parameters: [String: String] = [:]) -> AnyPublisher<T, Error> {
         let timestamp = String(Date().timeIntervalSince1970)
         let hash = MD5(string: timestamp + privateKey + publicKey)
         
@@ -39,46 +35,23 @@ class MarvelAPIClient {
         components?.queryItems = queryItems
         
         guard let url = components?.url else {
-            completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
-            return
+            return Fail(error: NSError(domain: "Invalid URL", code: 0, userInfo: nil)).eraseToAnyPublisher()
         }
         
         LoadingIndicator.shared.show()
-        currentTask = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
-            defer { self?.currentTask = nil }
-            
-            LoadingIndicator.shared.hide()
-            
-            if let error = error as NSError?, error.code == NSURLErrorCancelled {
-                // 태스크가 취소된 경우
-                return
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .tryMap { data, response -> Data in
+                LoadingIndicator.shared.hide()
+                
+                guard let httpResponse = response as? HTTPURLResponse,
+                      200...299 ~= httpResponse.statusCode else {
+                    throw URLError(.badServerResponse)
+                }
+                return data
             }
-            
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            
-            guard let data = data else {
-                completion(.failure(NSError(domain: "No data received", code: 0, userInfo: nil)))
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                let decodedData = try decoder.decode(T.self, from: data)
-                completion(.success(decodedData))
-            } catch {
-                completion(.failure(error))
-            }
-        }
-        
-        currentTask?.resume()
-    }
-    
-    func cancelCurrentTask() {
-        currentTask?.cancel()
-        currentTask = nil
+            .decode(type: T.self, decoder: JSONDecoder())
+            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
     }
     
     private func MD5(string: String) -> String {

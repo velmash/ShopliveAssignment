@@ -13,36 +13,36 @@ class SearchViewModel {
     @Published private(set) var characters: [Character] = []
     @Published private(set) var error: Error?
     
-    private var searchTask: DispatchWorkItem?
+    private var cancellables = Set<AnyCancellable>()
+    private var searchCancellable: AnyCancellable?
     
     func searchCharacters(nameStartsWith: String) {
-        searchTask?.cancel()
+        // 이전 검색 취소
+        searchCancellable?.cancel()
         
         guard nameStartsWith.count >= 2 else {
-            characters = []
             return
         }
         
         error = nil
         
-        let task = DispatchWorkItem { [weak self] in
-            MarvelAPI.shared.searchCharacters(nameStartsWith: nameStartsWith) { [weak self] result in
-                guard let self = self else { return }
-                
-                DispatchQueue.main.async {
-                    switch result {
-                    case .success(let characters):
-                        self.characters = characters
-                    case .failure(let error):
-                        self.error = error
-                        self.characters = []
-                    }
+        let searchPublisher = MarvelAPI.shared.searchCharacters(nameStartsWith: nameStartsWith)
+            .delay(for: .seconds(0.3), scheduler: DispatchQueue.main)
+            .share() //subscribe 공유
+        
+        searchCancellable = searchPublisher
+            .sink { [weak self] completion in
+                switch completion {
+                case .failure(let error):
+                    self?.error = error
+                    self?.characters = []
+                case .finished:
+                    break
                 }
+            } receiveValue: { [weak self] characters in
+                self?.characters = characters
             }
-        }
         
-        searchTask = task
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: task)
+        searchCancellable?.store(in: &cancellables)
     }
 }
