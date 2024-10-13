@@ -28,7 +28,7 @@ class BaseViewController<ContentView: BaseView>: UIViewController {
         
         contentView.snp.remakeConstraints {
             $0.top.leading.trailing.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(contentView.tabBarHeight)
+            $0.bottom.equalToSuperview().inset(contentView.tabBarHeight + contentView.bottomSafetyAreaInset)
         }
     }
 }
