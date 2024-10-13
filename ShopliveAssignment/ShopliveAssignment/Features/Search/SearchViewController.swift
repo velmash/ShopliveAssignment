@@ -8,10 +8,12 @@
 import UIKit
 
 class SearchViewController: BaseViewController<SearchView> {
+    var viewModel: SearchViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+     
+        viewModel?.searchAndPrintCharacters(nameStartsWith: "iron")
     }
 }
 

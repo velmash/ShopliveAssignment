@@ -17,6 +17,7 @@ class MainTabBarController: UITabBarController {
     
     private func setupViewControllers() {
         let searchVC = SearchViewController()
+        searchVC.viewModel = SearchViewModel()
         searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         
         let favoriteVC = FavoriteViewController()
