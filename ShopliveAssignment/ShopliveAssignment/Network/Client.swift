@@ -43,8 +43,11 @@ class MarvelAPIClient {
             return
         }
         
+        LoadingIndicator.shared.show()
         currentTask = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
             defer { self?.currentTask = nil }
+            
+            LoadingIndicator.shared.hide()
             
             if let error = error as NSError?, error.code == NSURLErrorCancelled {
                 // 태스크가 취소된 경우
