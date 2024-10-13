@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A1B3B8A2CBBF9D0003006A9 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B3B892CBBF9D0003006A9 /* Client.swift */; };
+		3A1B3B8C2CBBFC6E003006A9 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B3B8B2CBBFC6E003006A9 /* Character.swift */; };
+		3A1B3B8E2CBBFCA8003006A9 /* CharacterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B3B8D2CBBFCA8003006A9 /* CharacterUseCase.swift */; };
+		3A1B3B902CBBFD0D003006A9 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B3B8F2CBBFD0D003006A9 /* SearchViewModel.swift */; };
 		3A4019F22CB95E32003794E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4019E32CB95E32003794E3 /* SceneDelegate.swift */; };
 		3A4019F32CB95E32003794E3 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4019EF2CB95E32003794E3 /* SearchViewController.swift */; };
 		3A4019F52CB95E32003794E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A4019E92CB95E32003794E3 /* Assets.xcassets */; };
@@ -39,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A1B3B892CBBF9D0003006A9 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		3A1B3B8B2CBBFC6E003006A9 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		3A1B3B8D2CBBFCA8003006A9 /* CharacterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterUseCase.swift; sourceTree = "<group>"; };
+		3A1B3B8F2CBBFD0D003006A9 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		3A4019912CB942F2003794E3 /* ShopliveAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShopliveAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A4019A72CB942F4003794E3 /* ShopliveAssignmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShopliveAssignmentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A4019B12CB942F4003794E3 /* ShopliveAssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShopliveAssignmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +103,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A1B3B862CBBF47C003006A9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3A1B3B8B2CBBFC6E003006A9 /* Character.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3A1B3B872CBBF48C003006A9 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				3A1B3B892CBBF9D0003006A9 /* Client.swift */,
+				3A1B3B8D2CBBFCA8003006A9 /* CharacterUseCase.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		3A4019882CB942F2003794E3 = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +171,7 @@
 		3A4019E72CB95E32003794E3 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				3A1B3B8F2CBBFD0D003006A9 /* SearchViewModel.swift */,
 				3A4019EF2CB95E32003794E3 /* SearchViewController.swift */,
 				3A401A3B2CB963B0003794E3 /* Views */,
 			);
@@ -175,6 +201,8 @@
 			isa = PBXGroup;
 			children = (
 				3A4019E42CB95E32003794E3 /* App */,
+				3A1B3B862CBBF47C003006A9 /* Model */,
+				3A1B3B872CBBF48C003006A9 /* Network */,
 				3A4019E82CB95E32003794E3 /* Features */,
 				3A4019EC2CB95E32003794E3 /* Resources */,
 			);
@@ -356,7 +384,11 @@
 				3A401A2C2CB95F25003794E3 /* AppDelegate.swift in Sources */,
 				3A4019F22CB95E32003794E3 /* SceneDelegate.swift in Sources */,
 				3A401A302CB95F53003794E3 /* MainTabBarController.swift in Sources */,
+				3A1B3B8E2CBBFCA8003006A9 /* CharacterUseCase.swift in Sources */,
+				3A1B3B8C2CBBFC6E003006A9 /* Character.swift in Sources */,
+				3A1B3B902CBBFD0D003006A9 /* SearchViewModel.swift in Sources */,
 				3A401A3E2CB963CD003794E3 /* FavoriteViews.swift in Sources */,
+				3A1B3B8A2CBBF9D0003006A9 /* Client.swift in Sources */,
 				3A401A362CB961F4003794E3 /* BaseView.swift in Sources */,
 				3A401A3A2CB96381003794E3 /* SearchView.swift in Sources */,
 				3A4019F92CB95E77003794E3 /* FavoriteViewController.swift in Sources */,
