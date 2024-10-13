@@ -14,6 +14,8 @@ class MarvelAPIClient {
     let privateKey: String
     let baseURL: String
     
+    private var currentTask: URLSessionDataTask?
+    
     init() {
         self.publicKey = Bundle.main.object(forInfoDictionaryKey: "PublicKey") as! String
         self.privateKey = Bundle.main.object(forInfoDictionaryKey: "PrivateKey") as! String
@@ -21,6 +23,9 @@ class MarvelAPIClient {
     }
     
     func run<T: Codable>(endpoint: String, parameters: [String: String] = [:], completion: @escaping (Result<T, Error>) -> Void) {
+        // 기존 태스크가 있다면 취소
+        cancelCurrentTask()
+        
         let timestamp = String(Date().timeIntervalSince1970)
         let hash = MD5(string: timestamp + privateKey + publicKey)
         
@@ -34,18 +39,25 @@ class MarvelAPIClient {
         components?.queryItems = queryItems
         
         guard let url = components?.url else {
-            completion(.failure(NSError(domain: "URL 에러", code: 0, userInfo: nil)))
+            completion(.failure(NSError(domain: "Invalid URL", code: 0, userInfo: nil)))
             return
         }
         
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        currentTask = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
+            defer { self?.currentTask = nil }
+            
+            if let error = error as NSError?, error.code == NSURLErrorCancelled {
+                // 태스크가 취소된 경우
+                return
+            }
+            
             if let error = error {
                 completion(.failure(error))
                 return
             }
             
             guard let data = data else {
-                completion(.failure(NSError(domain: "받은 데이터 없음", code: 0, userInfo: nil)))
+                completion(.failure(NSError(domain: "No data received", code: 0, userInfo: nil)))
                 return
             }
             
@@ -58,7 +70,12 @@ class MarvelAPIClient {
             }
         }
         
-        task.resume()
+        currentTask?.resume()
+    }
+    
+    func cancelCurrentTask() {
+        currentTask?.cancel()
+        currentTask = nil
     }
     
     private func MD5(string: String) -> String {

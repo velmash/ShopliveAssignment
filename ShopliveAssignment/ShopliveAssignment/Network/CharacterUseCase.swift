@@ -26,4 +26,8 @@ class MarvelAPI {
             }
         }
     }
+    
+    func cancelCurrentSearch() {
+        client.cancelCurrentTask()
+    }
 }
