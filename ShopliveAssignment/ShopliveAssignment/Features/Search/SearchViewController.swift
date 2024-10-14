@@ -30,8 +30,8 @@ class SearchViewController: BaseViewController<SearchView> {
         
         viewModel.$characters
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] characters in
-                self?.updateUI(with: characters)
+            .sink { [weak self] _ in
+                self?.contentView.characterGridView.collectionView.reloadData()
             }
             .store(in: &cancellables)
         
@@ -44,11 +44,6 @@ class SearchViewController: BaseViewController<SearchView> {
             }
             .store(in: &cancellables)
     }
-    
-    private func updateUI(with characters: [Character]) {
-        contentView.characterGridView.collectionView.reloadData()
-    }
-    
     
     private func showError(_ error: Error) {
         print("에러:", error.localizedDescription)
@@ -79,5 +74,14 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         cell.configure(with: character)
         return cell
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - height {
+            viewModel?.loadMoreCharacters()
+        }
+    }
 }
-

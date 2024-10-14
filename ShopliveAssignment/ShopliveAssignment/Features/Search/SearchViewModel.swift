@@ -12,37 +12,47 @@ import Combine
 class SearchViewModel {
     @Published private(set) var characters: [Character] = []
     @Published private(set) var error: Error?
+    @Published private(set) var isLoading = false
+    
+    private var currentOffset = 0
+    private let limit = 10
+    private var currentSearchCharacterName = ""
+    private var canLoadMore = true
     
     private var cancellables = Set<AnyCancellable>()
-    private var searchCancellable: AnyCancellable?
     
     func searchCharacters(nameStartsWith: String) {
-        // 이전 검색 취소
-        searchCancellable?.cancel()
-        
         guard nameStartsWith.count >= 2 else {
+            characters = []
             return
         }
         
-        error = nil
+        currentSearchCharacterName = nameStartsWith
+        currentOffset = 0
+        canLoadMore = true
+        characters = []
         
-        let searchPublisher = MarvelAPI.shared.searchCharacters(nameStartsWith: nameStartsWith)
-            .delay(for: .seconds(0.3), scheduler: DispatchQueue.main)
-            .share() //subscribe 공유
+        loadMoreCharacters()
+    }
+    
+    func loadMoreCharacters() {
+        guard !isLoading, canLoadMore else { return }
         
-        searchCancellable = searchPublisher
+        isLoading = true
+        
+        MarvelAPI.shared.searchCharacters(nameStartsWith: currentSearchCharacterName, offset: currentOffset)
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
-                switch completion {
-                case .failure(let error):
+                self?.isLoading = false
+                if case .failure(let error) = completion {
                     self?.error = error
-                    self?.characters = []
-                case .finished:
-                    break
                 }
-            } receiveValue: { [weak self] characters in
-                self?.characters = characters
+            } receiveValue: { [weak self] newCharacters in
+                guard let self = self else { return }
+                self.characters.append(contentsOf: newCharacters)
+                self.currentOffset += newCharacters.count
+                self.canLoadMore = newCharacters.count == self.limit
             }
-        
-        searchCancellable?.store(in: &cancellables)
+            .store(in: &cancellables)
     }
 }

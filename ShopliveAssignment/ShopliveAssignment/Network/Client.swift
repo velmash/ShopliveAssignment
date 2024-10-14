@@ -21,12 +21,14 @@ class MarvelAPIClient {
         self.baseURL = "https://gateway.marvel.com:443/v1/public"
     }
     
-    func run<T: Codable>(endpoint: String, parameters: [String: String] = [:]) -> AnyPublisher<T, Error> {
+    func run<T: Codable>(endpoint: String, parameters: [String: Any] = [:]) -> AnyPublisher<T, Error> {
         let timestamp = String(Date().timeIntervalSince1970)
         let hash = MD5(string: timestamp + privateKey + publicKey)
         
         var components = URLComponents(string: baseURL + endpoint)
-        var queryItems = parameters.map { URLQueryItem(name: $0.key, value: $0.value) }
+        var queryItems = parameters.map {
+            URLQueryItem(name: $0.key, value: String(describing: $0.value))
+        }
         queryItems += [
             URLQueryItem(name: "apikey", value: publicKey),
             URLQueryItem(name: "ts", value: timestamp),

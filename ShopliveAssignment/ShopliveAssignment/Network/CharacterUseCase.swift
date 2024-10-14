@@ -14,9 +14,11 @@ class MarvelAPI {
     
     private init() {}
     
-    func searchCharacters(nameStartsWith: String) -> AnyPublisher<[Character], Error> {
+    func searchCharacters(nameStartsWith: String, offset: Int) -> AnyPublisher<[Character], Error> {
         let endpoint = "/characters"
-        let parameters = ["nameStartsWith": nameStartsWith]
+        let parameters: [String: Any] = ["nameStartsWith": nameStartsWith,
+                          "offset": offset,
+                          "limit": 10]
         
         return client.run(endpoint: endpoint, parameters: parameters)
             .map { (response: MarvelResponse<Character>) in
