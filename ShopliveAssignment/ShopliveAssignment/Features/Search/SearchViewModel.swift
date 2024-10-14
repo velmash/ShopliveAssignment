@@ -21,7 +21,23 @@ class SearchViewModel {
     
     private var cancellables = Set<AnyCancellable>()
     
-    func searchCharacters(nameStartsWith: String) {
+    let searchSubject = PassthroughSubject<String, Never>()
+    
+    init() {
+        setupSearchDebounce()
+    }
+    
+    private func setupSearchDebounce() {
+        searchSubject
+            .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
+            .removeDuplicates()
+            .sink { [weak self] searchText in
+                self?.searchCharacters(nameStartsWith: searchText)
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func searchCharacters(nameStartsWith: String) {
         guard nameStartsWith.count >= 2 else {
             characters = []
             return
