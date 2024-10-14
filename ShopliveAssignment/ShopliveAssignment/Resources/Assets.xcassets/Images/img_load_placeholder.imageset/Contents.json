@@ -6,12 +6,12 @@
       "scale" : "1x"
     },
     {
-      "filename" : "img_load_placeholder 1.svg",
+      "filename" : "img_load_placeholder@2x.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "img_load_placeholder 2.svg",
+      "filename" : "img_load_placeholder@3x.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }
