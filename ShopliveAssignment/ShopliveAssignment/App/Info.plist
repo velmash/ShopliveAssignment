@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>PublicKey</key>
-	<string>2fdc1376224f23ca2de4f52f2651bec9</string>
-	<key>PrivateKey</key>
-	<string>8e231819116a5b32f5515d8514d50aafb1a53c37</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -22,6 +18,15 @@
 				</dict>
 			</array>
 		</dict>
+	</dict>
+	<key>PublicKey</key>
+	<string>2fdc1376224f23ca2de4f52f2651bec9</string>
+	<key>PrivateKey</key>
+	<string>8e231819116a5b32f5515d8514d50aafb1a53c37</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 	</dict>
 </dict>
 </plist>
