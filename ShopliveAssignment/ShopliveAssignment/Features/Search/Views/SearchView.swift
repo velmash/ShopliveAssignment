@@ -16,6 +16,8 @@ final class SearchView: BaseView {
         $0.backgroundColor = .clear
     }
     
+    lazy var characterGridView = CharacterGridView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -28,6 +30,7 @@ final class SearchView: BaseView {
     
     override func addSubviews() {
         addSubview(searchBar)
+        addSubview(characterGridView)
     }
     
     override func addConstraints() {
@@ -36,6 +39,12 @@ final class SearchView: BaseView {
             $0.leading.equalToSuperview().offset(16)
             $0.trailing.equalToSuperview().inset(16)
             $0.height.equalTo(50)
+        }
+        
+        characterGridView.snp.makeConstraints {
+            $0.top.equalTo(searchBar.snp.bottom).offset(16)
+            $0.leading.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
     }
 }

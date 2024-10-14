@@ -25,6 +25,9 @@
 		3A401A382CB9620B003794E3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A401A372CB9620B003794E3 /* BaseViewController.swift */; };
 		3A401A3A2CB96381003794E3 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A401A392CB96381003794E3 /* SearchView.swift */; };
 		3A401A3E2CB963CD003794E3 /* FavoriteViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A401A3D2CB963CD003794E3 /* FavoriteViews.swift */; };
+		3ABC855C2CBCB3A700F70280 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC855B2CBCB3A700F70280 /* UIImage+Extension.swift */; };
+		3ADC91262CBC9A4F005174C8 /* CharacterGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC91252CBC9A4F005174C8 /* CharacterGridView.swift */; };
+		3ADC91282CBC9A82005174C8 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC91272CBC9A82005174C8 /* CharacterCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +68,9 @@
 		3A401A372CB9620B003794E3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3A401A392CB96381003794E3 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		3A401A3D2CB963CD003794E3 /* FavoriteViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViews.swift; sourceTree = "<group>"; };
+		3ABC855B2CBCB3A700F70280 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		3ADC91252CBC9A4F005174C8 /* CharacterGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterGridView.swift; sourceTree = "<group>"; };
+		3ADC91272CBC9A82005174C8 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -185,6 +191,7 @@
 		3A4019E82CB95E32003794E3 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				3ADC91222CBC99EA005174C8 /* Common */,
 				3A4019E52CB95E32003794E3 /* MainTabBar */,
 				3A4019E72CB95E32003794E3 /* Search */,
 				3A4019E62CB95E32003794E3 /* Favorite */,
@@ -219,6 +226,7 @@
 				3A401A372CB9620B003794E3 /* BaseViewController.swift */,
 				3A401A352CB961F4003794E3 /* BaseView.swift */,
 				3A1B3B942CBC0A1A003006A9 /* LoadingIndicator.swift */,
+				3ABC855A2CBCB39B00F70280 /* Extensions */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -237,6 +245,31 @@
 				3A401A3D2CB963CD003794E3 /* FavoriteViews.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		3ABC855A2CBCB39B00F70280 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3ABC855B2CBCB3A700F70280 /* UIImage+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3ADC91222CBC99EA005174C8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3ADC91242CBC9A1C005174C8 /* CharacterGrid */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		3ADC91242CBC9A1C005174C8 /* CharacterGrid */ = {
+			isa = PBXGroup;
+			children = (
+				3ADC91252CBC9A4F005174C8 /* CharacterGridView.swift */,
+				3ADC91272CBC9A82005174C8 /* CharacterCell.swift */,
+			);
+			path = CharacterGrid;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,6 +432,9 @@
 				3A401A362CB961F4003794E3 /* BaseView.swift in Sources */,
 				3A401A3A2CB96381003794E3 /* SearchView.swift in Sources */,
 				3A1B3B952CBC0A1A003006A9 /* LoadingIndicator.swift in Sources */,
+				3ADC91282CBC9A82005174C8 /* CharacterCell.swift in Sources */,
+				3ABC855C2CBCB3A700F70280 /* UIImage+Extension.swift in Sources */,
+				3ADC91262CBC9A4F005174C8 /* CharacterGridView.swift in Sources */,
 				3A4019F92CB95E77003794E3 /* FavoriteViewController.swift in Sources */,
 				3A401A382CB9620B003794E3 /* BaseViewController.swift in Sources */,
 				3A4019F32CB95E32003794E3 /* SearchViewController.swift in Sources */,
@@ -454,6 +490,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FP8CB3BY93;
+				ENABLE_DEBUG_DYLIB = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShopliveAssignment/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -486,6 +523,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = FP8CB3BY93;
+				ENABLE_DEBUG_DYLIB = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ShopliveAssignment/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

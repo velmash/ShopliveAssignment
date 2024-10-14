@@ -17,6 +17,12 @@ class SearchViewController: BaseViewController<SearchView> {
         
         contentView.searchBar.delegate = self
         setupBindings()
+        setupCharacterGrid()
+    }
+    
+    private func setupCharacterGrid() {
+        contentView.characterGridView.collectionView.delegate = self
+        contentView.characterGridView.collectionView.dataSource = self
     }
     
     private func setupBindings() {
@@ -40,7 +46,7 @@ class SearchViewController: BaseViewController<SearchView> {
     }
     
     private func updateUI(with characters: [Character]) {
-        print("Characters updated:", characters)
+        contentView.characterGridView.collectionView.reloadData()
     }
     
     
@@ -56,6 +62,22 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+    }
+}
+
+extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel?.characters.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CharacterCell.reuseIdentifier, for: indexPath) as? CharacterCell,
+              let character = viewModel?.characters[indexPath.item] else {
+            return UICollectionViewCell()
+        }
+        
+        cell.configure(with: character)
+        return cell
     }
 }
 
