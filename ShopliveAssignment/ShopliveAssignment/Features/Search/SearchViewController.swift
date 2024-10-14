@@ -52,7 +52,7 @@ class SearchViewController: BaseViewController<SearchView> {
 
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel?.searchCharacters(nameStartsWith: searchText)
+        viewModel?.searchSubject.send(searchText)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
