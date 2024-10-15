@@ -8,14 +8,12 @@
 import Foundation
 import Combine
 
-// ViewModel
-class SearchViewModel {
+class SearchViewModel: FavoriteRepository {
+    let favoriteService = FavoriteService.shared
     let remoteUseCase = MarvelAPI.shared
-    let localUseCase = RealmService.shared
     
     @Published private(set) var characters: [Character] = []
-    @Published private(set) var favoriteCharacters: Set<Int> = []
-    
+    @Published var favoriteCharacters: [Character] = []
     @Published private(set) var error: Error?
     @Published private(set) var isLoading = false
     
@@ -30,10 +28,15 @@ class SearchViewModel {
     
     init() {
         setupSearchDebounce()
+        setupFavoritesSubscription()
     }
     
-    func loadFavorites() {
-        favoriteCharacters = Set(localUseCase.getFavoriteCharacters().map { $0.id })
+    private func setupFavoritesSubscription() {
+        favoritesPublisher
+            .sink { [weak self] characters in
+                self?.favoriteCharacters = characters
+            }
+            .store(in: &cancellables)
     }
     
     private func setupSearchDebounce() {
@@ -79,28 +82,5 @@ class SearchViewModel {
                 self.canLoadMore = newCharacters.count == self.limit
             }
             .store(in: &cancellables)
-    }
-    
-    func isFavoriteCharacter(_ character: Character) -> Bool {
-        favoriteCharacters.contains(character.id)
-    }
-    
-    func toggleFavorite(for character: Character) {
-        if favoriteCharacters.contains(character.id) {
-            removeFavorite(character)
-        } else {
-            addFavorite(character)
-        }
-    }
-    
-    private func removeFavorite(_ character: Character) {
-        localUseCase.removeFavoriteCharacter(character)
-        favoriteCharacters.remove(character.id)
-    }
-    
-    private func addFavorite(_ character: Character) {
-        if localUseCase.saveFavoriteCharacter(character) {
-            favoriteCharacters.insert(character.id)
-        }
     }
 }

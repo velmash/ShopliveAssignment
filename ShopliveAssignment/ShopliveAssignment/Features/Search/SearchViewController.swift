@@ -20,12 +20,6 @@ class SearchViewController: BaseViewController<SearchView> {
         setupCharacterGrid()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        viewModel?.loadFavorites() // 타 탭바에서 값 변경 후 돌아왔을 때 Local Data 동기화 위해
-    }
-    
     private func setupCharacterGrid() {
         contentView.characterGridView.collectionView.delegate = self
         contentView.characterGridView.collectionView.dataSource = self
@@ -35,6 +29,13 @@ class SearchViewController: BaseViewController<SearchView> {
         guard let viewModel = viewModel else { return }
         
         viewModel.$characters
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.contentView.characterGridView.collectionView.reloadData()
+            }
+            .store(in: &cancellables)
+        
+        viewModel.$favoriteCharacters
             .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.contentView.characterGridView.collectionView.reloadData()
@@ -77,7 +78,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return UICollectionViewCell()
         }
         
-        let isFavorite = viewModel?.isFavoriteCharacter(character) ?? false
+        let isFavorite = viewModel?.isFavorite(character) ?? false
         cell.configure(with: character, isFavorite: isFavorite)
         
         return cell
@@ -87,9 +88,13 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         guard let character = viewModel?.characters[indexPath.item] else { return }
         
         viewModel?.toggleFavorite(for: character)
-        collectionView.reloadItems(at: [indexPath]) // 바뀌는 부분만 reload
+        
+        // 즐겨찾기 상태 변경 후 해당 셀만 업데이트
+        if let cell = collectionView.cellForItem(at: indexPath) as? CharacterCell {
+            let isFavorite = viewModel?.isFavorite(character) ?? false
+            cell.updateFavoriteState(isFavorite: isFavorite)
+        }
     }
-
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y

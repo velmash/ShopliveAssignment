@@ -86,4 +86,8 @@ class CharacterCell: UICollectionViewCell {
         
         contentView.backgroundColor = isFavorite ? .lightGray : .white
     }
+    
+    func updateFavoriteState(isFavorite: Bool) {
+        contentView.backgroundColor = isFavorite ? .yellow : .white
+    }
 }
