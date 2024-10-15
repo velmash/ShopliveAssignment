@@ -25,11 +25,11 @@
 		3A401A382CB9620B003794E3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A401A372CB9620B003794E3 /* BaseViewController.swift */; };
 		3A401A3A2CB96381003794E3 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A401A392CB96381003794E3 /* SearchView.swift */; };
 		3A401A3E2CB963CD003794E3 /* FavoriteViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A401A3D2CB963CD003794E3 /* FavoriteViews.swift */; };
-		3A6648572CBD577C00363FC2 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 3A6648562CBD577C00363FC2 /* Realm */; };
 		3ABC855C2CBCB3A700F70280 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC855B2CBCB3A700F70280 /* UIImage+Extension.swift */; };
 		3ABC856B2CBCCC7900F70280 /* ShopliveAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC85692CBCCC7900F70280 /* ShopliveAssignmentTests.swift */; };
 		3ABC856F2CBCCC7A00F70280 /* ShopliveAssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC856C2CBCCC7A00F70280 /* ShopliveAssignmentUITests.swift */; };
 		3ABC85702CBCCC7A00F70280 /* ShopliveAssignmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC856D2CBCCC7A00F70280 /* ShopliveAssignmentUITestsLaunchTests.swift */; };
+		3ADC7B622CBE3A520013AAAE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3ADC7B612CBE3A520013AAAE /* RealmSwift */; };
 		3ADC91262CBC9A4F005174C8 /* CharacterGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC91252CBC9A4F005174C8 /* CharacterGridView.swift */; };
 		3ADC91282CBC9A82005174C8 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC91272CBC9A82005174C8 /* CharacterCell.swift */; };
 /* End PBXBuildFile section */
@@ -85,7 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A6648572CBD577C00363FC2 /* Realm in Frameworks */,
+				3ADC7B622CBE3A520013AAAE /* RealmSwift in Frameworks */,
 				3A401A332CB961C6003794E3 /* SnapKit in Frameworks */,
 				3A1B3B932CBC0147003006A9 /* Then in Frameworks */,
 			);
@@ -303,7 +303,7 @@
 			packageProductDependencies = (
 				3A401A322CB961C6003794E3 /* SnapKit */,
 				3A1B3B922CBC0147003006A9 /* Then */,
-				3A6648562CBD577C00363FC2 /* Realm */,
+				3ADC7B612CBE3A520013AAAE /* RealmSwift */,
 			);
 			productName = ShopliveAssignment;
 			productReference = 3A4019912CB942F2003794E3 /* ShopliveAssignment.app */;
@@ -384,7 +384,7 @@
 			packageReferences = (
 				3A401A312CB961C6003794E3 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				3A1B3B912CBC0147003006A9 /* XCRemoteSwiftPackageReference "Then" */,
-				3A6648552CBD577C00363FC2 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				3ADC7B602CBE3A520013AAAE /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3A4019922CB942F2003794E3 /* Products */;
@@ -808,7 +808,7 @@
 				minimumVersion = 5.7.1;
 			};
 		};
-		3A6648552CBD577C00363FC2 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		3ADC7B602CBE3A520013AAAE /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift";
 			requirement = {
@@ -829,10 +829,10 @@
 			package = 3A401A312CB961C6003794E3 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		3A6648562CBD577C00363FC2 /* Realm */ = {
+		3ADC7B612CBE3A520013AAAE /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3A6648552CBD577C00363FC2 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = Realm;
+			package = 3ADC7B602CBE3A520013AAAE /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
