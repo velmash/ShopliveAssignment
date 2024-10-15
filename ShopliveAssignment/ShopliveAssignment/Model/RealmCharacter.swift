@@ -5,6 +5,7 @@
 //  Created by 윤형찬 on 10/15/24.
 //
 
+import Foundation
 import RealmSwift
 
 // DB 모델링
@@ -14,6 +15,7 @@ class RealmCharacter: Object {
     @Persisted var characterDescription: String
     @Persisted var thumbnailPath: String
     @Persisted var thumbnailExtension: String
+    @Persisted var createdAt: Date
     
     convenience init(character: Character) {
         self.init()
@@ -22,6 +24,7 @@ class RealmCharacter: Object {
         self.characterDescription = character.description
         self.thumbnailPath = character.thumbnail.path
         self.thumbnailExtension = character.thumbnail.thumbnailExtension
+        self.createdAt = Date()
     }
     
     func toCharacter() -> Character {
