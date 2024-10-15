@@ -30,6 +30,8 @@
 		3ABC856F2CBCCC7A00F70280 /* ShopliveAssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC856C2CBCCC7A00F70280 /* ShopliveAssignmentUITests.swift */; };
 		3ABC85702CBCCC7A00F70280 /* ShopliveAssignmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABC856D2CBCCC7A00F70280 /* ShopliveAssignmentUITestsLaunchTests.swift */; };
 		3ADC7B622CBE3A520013AAAE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3ADC7B612CBE3A520013AAAE /* RealmSwift */; };
+		3ADC7B672CBE3AC80013AAAE /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC7B662CBE3AC80013AAAE /* RealmService.swift */; };
+		3ADC7B692CBE3B000013AAAE /* RealmCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC7B682CBE3B000013AAAE /* RealmCharacter.swift */; };
 		3ADC91262CBC9A4F005174C8 /* CharacterGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC91252CBC9A4F005174C8 /* CharacterGridView.swift */; };
 		3ADC91282CBC9A82005174C8 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC91272CBC9A82005174C8 /* CharacterCell.swift */; };
 /* End PBXBuildFile section */
@@ -76,6 +78,8 @@
 		3ABC85692CBCCC7900F70280 /* ShopliveAssignmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopliveAssignmentTests.swift; sourceTree = "<group>"; };
 		3ABC856C2CBCCC7A00F70280 /* ShopliveAssignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopliveAssignmentUITests.swift; sourceTree = "<group>"; };
 		3ABC856D2CBCCC7A00F70280 /* ShopliveAssignmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopliveAssignmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3ADC7B662CBE3AC80013AAAE /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		3ADC7B682CBE3B000013AAAE /* RealmCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCharacter.swift; sourceTree = "<group>"; };
 		3ADC91252CBC9A4F005174C8 /* CharacterGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterGridView.swift; sourceTree = "<group>"; };
 		3ADC91272CBC9A82005174C8 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				3A1B3B8B2CBBFC6E003006A9 /* Character.swift */,
+				3ADC7B682CBE3B000013AAAE /* RealmCharacter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				3ADC7B632CBE3A830013AAAE /* Remote */,
+				3ADC7B652CBE3AB30013AAAE /* Local */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -273,6 +279,14 @@
 				3A1B3B8D2CBBFCA8003006A9 /* CharacterUseCase.swift */,
 			);
 			path = Remote;
+			sourceTree = "<group>";
+		};
+		3ADC7B652CBE3AB30013AAAE /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				3ADC7B662CBE3AC80013AAAE /* RealmService.swift */,
+			);
+			path = Local;
 			sourceTree = "<group>";
 		};
 		3ADC91222CBC99EA005174C8 /* Common */ = {
@@ -441,6 +455,7 @@
 				3A4019F22CB95E32003794E3 /* SceneDelegate.swift in Sources */,
 				3A401A302CB95F53003794E3 /* MainTabBarController.swift in Sources */,
 				3A1B3B8E2CBBFCA8003006A9 /* CharacterUseCase.swift in Sources */,
+				3ADC7B692CBE3B000013AAAE /* RealmCharacter.swift in Sources */,
 				3A1B3B8C2CBBFC6E003006A9 /* Character.swift in Sources */,
 				3A1B3B902CBBFD0D003006A9 /* SearchViewModel.swift in Sources */,
 				3A401A3E2CB963CD003794E3 /* FavoriteViews.swift in Sources */,
@@ -450,6 +465,7 @@
 				3A1B3B952CBC0A1A003006A9 /* LoadingIndicator.swift in Sources */,
 				3ADC91282CBC9A82005174C8 /* CharacterCell.swift in Sources */,
 				3ABC855C2CBCB3A700F70280 /* UIImage+Extension.swift in Sources */,
+				3ADC7B672CBE3AC80013AAAE /* RealmService.swift in Sources */,
 				3ADC91262CBC9A4F005174C8 /* CharacterGridView.swift in Sources */,
 				3A4019F92CB95E77003794E3 /* FavoriteViewController.swift in Sources */,
 				3A401A382CB9620B003794E3 /* BaseViewController.swift in Sources */,
