@@ -32,6 +32,9 @@
 		3ADC7B622CBE3A520013AAAE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3ADC7B612CBE3A520013AAAE /* RealmSwift */; };
 		3ADC7B672CBE3AC80013AAAE /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC7B662CBE3AC80013AAAE /* RealmService.swift */; };
 		3ADC7B692CBE3B000013AAAE /* RealmCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC7B682CBE3B000013AAAE /* RealmCharacter.swift */; };
+		3ADC7B6B2CBE42C10013AAAE /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC7B6A2CBE42C10013AAAE /* FavoriteViewModel.swift */; };
+		3ADC7B6D2CBE47F10013AAAE /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC7B6C2CBE47F10013AAAE /* FavoriteService.swift */; };
+		3ADC7B6F2CBE48110013AAAE /* FavoriteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC7B6E2CBE48110013AAAE /* FavoriteRepository.swift */; };
 		3ADC91262CBC9A4F005174C8 /* CharacterGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC91252CBC9A4F005174C8 /* CharacterGridView.swift */; };
 		3ADC91282CBC9A82005174C8 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC91272CBC9A82005174C8 /* CharacterCell.swift */; };
 /* End PBXBuildFile section */
@@ -80,6 +83,9 @@
 		3ABC856D2CBCCC7A00F70280 /* ShopliveAssignmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopliveAssignmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		3ADC7B662CBE3AC80013AAAE /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		3ADC7B682CBE3B000013AAAE /* RealmCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCharacter.swift; sourceTree = "<group>"; };
+		3ADC7B6A2CBE42C10013AAAE /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
+		3ADC7B6C2CBE47F10013AAAE /* FavoriteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteService.swift; sourceTree = "<group>"; };
+		3ADC7B6E2CBE48110013AAAE /* FavoriteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepository.swift; sourceTree = "<group>"; };
 		3ADC91252CBC9A4F005174C8 /* CharacterGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterGridView.swift; sourceTree = "<group>"; };
 		3ADC91272CBC9A82005174C8 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +178,7 @@
 		3A4019E62CB95E32003794E3 /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
+				3ADC7B6A2CBE42C10013AAAE /* FavoriteViewModel.swift */,
 				3A4019F82CB95E77003794E3 /* FavoriteViewController.swift */,
 				3A401A3C2CB963BB003794E3 /* Views */,
 			);
@@ -276,7 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				3A1B3B892CBBF9D0003006A9 /* Client.swift */,
-				3A1B3B8D2CBBFCA8003006A9 /* CharacterUseCase.swift */,
+				3ADC7B702CBE49E60013AAAE /* Character */,
 			);
 			path = Remote;
 			sourceTree = "<group>";
@@ -285,8 +292,26 @@
 			isa = PBXGroup;
 			children = (
 				3ADC7B662CBE3AC80013AAAE /* RealmService.swift */,
+				3ADC7B712CBE49F70013AAAE /* Favorite */,
 			);
 			path = Local;
+			sourceTree = "<group>";
+		};
+		3ADC7B702CBE49E60013AAAE /* Character */ = {
+			isa = PBXGroup;
+			children = (
+				3A1B3B8D2CBBFCA8003006A9 /* CharacterUseCase.swift */,
+			);
+			path = Character;
+			sourceTree = "<group>";
+		};
+		3ADC7B712CBE49F70013AAAE /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				3ADC7B6C2CBE47F10013AAAE /* FavoriteService.swift */,
+				3ADC7B6E2CBE48110013AAAE /* FavoriteRepository.swift */,
+			);
+			path = Favorite;
 			sourceTree = "<group>";
 		};
 		3ADC91222CBC99EA005174C8 /* Common */ = {
@@ -459,8 +484,10 @@
 				3A1B3B8C2CBBFC6E003006A9 /* Character.swift in Sources */,
 				3A1B3B902CBBFD0D003006A9 /* SearchViewModel.swift in Sources */,
 				3A401A3E2CB963CD003794E3 /* FavoriteViews.swift in Sources */,
+				3ADC7B6F2CBE48110013AAAE /* FavoriteRepository.swift in Sources */,
 				3A1B3B8A2CBBF9D0003006A9 /* Client.swift in Sources */,
 				3A401A362CB961F4003794E3 /* BaseView.swift in Sources */,
+				3ADC7B6D2CBE47F10013AAAE /* FavoriteService.swift in Sources */,
 				3A401A3A2CB96381003794E3 /* SearchView.swift in Sources */,
 				3A1B3B952CBC0A1A003006A9 /* LoadingIndicator.swift in Sources */,
 				3ADC91282CBC9A82005174C8 /* CharacterCell.swift in Sources */,
@@ -469,6 +496,7 @@
 				3ADC91262CBC9A4F005174C8 /* CharacterGridView.swift in Sources */,
 				3A4019F92CB95E77003794E3 /* FavoriteViewController.swift in Sources */,
 				3A401A382CB9620B003794E3 /* BaseViewController.swift in Sources */,
+				3ADC7B6B2CBE42C10013AAAE /* FavoriteViewModel.swift in Sources */,
 				3A4019F32CB95E32003794E3 /* SearchViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
