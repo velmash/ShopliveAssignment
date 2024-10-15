@@ -73,7 +73,7 @@ class CharacterCell: UICollectionViewCell {
         }
     }
     
-    func configure(with character: Character) {
+    func configure(with character: Character, isFavorite: Bool) {
         if let url = URL(string: "\(character.thumbnail.path).\(character.thumbnail.thumbnailExtension)") {
             self.imageView.loadImage(from: url)
         }
@@ -83,5 +83,7 @@ class CharacterCell: UICollectionViewCell {
         if !character.description.isEmpty {
             descLabel.text = character.description
         }
+        
+        contentView.backgroundColor = isFavorite ? .lightGray : .white
     }
 }

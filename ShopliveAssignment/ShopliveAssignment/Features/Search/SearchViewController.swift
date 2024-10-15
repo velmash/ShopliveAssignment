@@ -20,6 +20,12 @@ class SearchViewController: BaseViewController<SearchView> {
         setupCharacterGrid()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel?.loadFavorites() // 타 탭바에서 값 변경 후 돌아왔을 때 Local Data 동기화 위해
+    }
+    
     private func setupCharacterGrid() {
         contentView.characterGridView.collectionView.delegate = self
         contentView.characterGridView.collectionView.dataSource = self
@@ -71,9 +77,19 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return UICollectionViewCell()
         }
         
-        cell.configure(with: character)
+        let isFavorite = viewModel?.isFavoriteCharacter(character) ?? false
+        cell.configure(with: character, isFavorite: isFavorite)
+        
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let character = viewModel?.characters[indexPath.item] else { return }
+        
+        viewModel?.toggleFavorite(for: character)
+        collectionView.reloadItems(at: [indexPath]) // 바뀌는 부분만 reload
+    }
+
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
