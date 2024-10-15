@@ -35,14 +35,14 @@ final class SearchView: BaseView {
     
     override func addConstraints() {
         searchBar.snp.makeConstraints {
-            $0.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(16)
-            $0.leading.equalToSuperview().offset(16)
-            $0.trailing.equalToSuperview().inset(16)
+            $0.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(basePadding * 2)
+            $0.leading.equalToSuperview().offset(basePadding * 2)
+            $0.trailing.equalToSuperview().inset(basePadding * 2)
             $0.height.equalTo(50)
         }
         
         characterGridView.snp.makeConstraints {
-            $0.top.equalTo(searchBar.snp.bottom).offset(16)
+            $0.top.equalTo(searchBar.snp.bottom).offset(basePadding * 2)
             $0.leading.trailing.equalToSuperview()
             $0.bottom.equalToSuperview()
         }

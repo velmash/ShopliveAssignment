@@ -12,6 +12,7 @@ class BaseView: UIView {
     let topSafetyAreaInset = (UIApplication.shared.connectedScenes.first as! UIWindowScene).windows.first!.safeAreaInsets.top
     let bottomSafetyAreaInset = (UIApplication.shared.connectedScenes.first as! UIWindowScene).windows.first!.safeAreaInsets.bottom
     let tabBarHeight: CGFloat = 48
+    let basePadding: CGFloat = 8
     
     override init(frame: CGRect) {
         super.init(frame: frame)

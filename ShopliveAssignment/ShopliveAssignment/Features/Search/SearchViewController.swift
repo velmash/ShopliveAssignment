@@ -35,6 +35,13 @@ class SearchViewController: BaseViewController<SearchView> {
             }
             .store(in: &cancellables)
         
+        viewModel.$favoriteCharacters
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.contentView.characterGridView.collectionView.reloadData()
+            }
+            .store(in: &cancellables)
+        
         viewModel.$error
             .receive(on: DispatchQueue.main)
             .sink { [weak self] error in
@@ -71,8 +78,22 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
             return UICollectionViewCell()
         }
         
-        cell.configure(with: character)
+        let isFavorite = viewModel?.isFavorite(character) ?? false
+        cell.configure(with: character, isFavorite: isFavorite)
+        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let character = viewModel?.characters[indexPath.item] else { return }
+        
+        viewModel?.toggleFavorite(for: character)
+        
+        // 즐겨찾기 상태 변경 후 해당 셀만 업데이트
+        if let cell = collectionView.cellForItem(at: indexPath) as? CharacterCell {
+            let isFavorite = viewModel?.isFavorite(character) ?? false
+            cell.updateFavoriteState(isFavorite: isFavorite)
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

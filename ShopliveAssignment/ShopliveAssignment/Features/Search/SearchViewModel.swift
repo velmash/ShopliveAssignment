@@ -8,9 +8,12 @@
 import Foundation
 import Combine
 
-// ViewModel
-class SearchViewModel {
+class SearchViewModel: FavoriteRepository {
+    let favoriteService = FavoriteService.shared
+    let remoteUseCase = MarvelAPI.shared
+    
     @Published private(set) var characters: [Character] = []
+    @Published var favoriteCharacters: [Character] = []
     @Published private(set) var error: Error?
     @Published private(set) var isLoading = false
     
@@ -25,6 +28,15 @@ class SearchViewModel {
     
     init() {
         setupSearchDebounce()
+        setupFavoritesSubscription()
+    }
+    
+    private func setupFavoritesSubscription() {
+        favoritesPublisher
+            .sink { [weak self] characters in
+                self?.favoriteCharacters = characters
+            }
+            .store(in: &cancellables)
     }
     
     private func setupSearchDebounce() {
@@ -56,7 +68,7 @@ class SearchViewModel {
         
         isLoading = true
         
-        MarvelAPI.shared.searchCharacters(nameStartsWith: currentSearchCharacterName, offset: currentOffset)
+        remoteUseCase.searchCharacters(nameStartsWith: currentSearchCharacterName, offset: currentOffset)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] completion in
                 self?.isLoading = false

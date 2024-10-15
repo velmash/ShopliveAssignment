@@ -22,6 +22,7 @@ class MainTabBarController: UITabBarController {
         searchVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         
         let favoriteVC = FavoriteViewController()
+        favoriteVC.viewModel = FavoriteViewModel()
         favoriteVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
         
         viewControllers = [searchVC, favoriteVC]
