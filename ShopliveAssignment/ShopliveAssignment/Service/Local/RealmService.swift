@@ -14,14 +14,18 @@ class RealmService {
     
     func saveFavoriteCharacter(_ character: Character) -> Bool {
         let realm = try! Realm()
+        
         let favoriteCount = realm.objects(RealmCharacter.self).count
-        
-        guard favoriteCount < 5 else { return false }
-        
-        let realmCharacter = RealmCharacter(character: character)
         
         do {
             try realm.write {
+                if favoriteCount >= 5 {
+                    if let oldestCharacter = realm.objects(RealmCharacter.self).sorted(byKeyPath: "createdAt").first {
+                        realm.delete(oldestCharacter)
+                    }
+                }
+                
+                let realmCharacter = RealmCharacter(character: character)
                 realm.add(realmCharacter)
             }
             return true
@@ -46,7 +50,7 @@ class RealmService {
     
     func getFavoriteCharacters() -> [Character] {
         let realm = try! Realm()
-        let realmCharacters = realm.objects(RealmCharacter.self)
+        let realmCharacters = realm.objects(RealmCharacter.self).sorted(byKeyPath: "createdAt", ascending: true)
         return realmCharacters.map { $0.toCharacter() }
     }
     
