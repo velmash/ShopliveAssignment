@@ -116,13 +116,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		3A1B3B872CBBF48C003006A9 /* Network */ = {
+		3A1B3B872CBBF48C003006A9 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				3A1B3B892CBBF9D0003006A9 /* Client.swift */,
-				3A1B3B8D2CBBFCA8003006A9 /* CharacterUseCase.swift */,
+				3ADC7B632CBE3A830013AAAE /* Remote */,
 			);
-			path = Network;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		3A4019882CB942F2003794E3 = {
@@ -208,7 +207,7 @@
 			children = (
 				3A4019E42CB95E32003794E3 /* App */,
 				3A1B3B862CBBF47C003006A9 /* Model */,
-				3A1B3B872CBBF48C003006A9 /* Network */,
+				3A1B3B872CBBF48C003006A9 /* Service */,
 				3A4019E82CB95E32003794E3 /* Features */,
 				3A4019EC2CB95E32003794E3 /* Resources */,
 			);
@@ -265,6 +264,15 @@
 				3ABC856D2CBCCC7A00F70280 /* ShopliveAssignmentUITestsLaunchTests.swift */,
 			);
 			path = ShopliveAssignmentUITests;
+			sourceTree = "<group>";
+		};
+		3ADC7B632CBE3A830013AAAE /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				3A1B3B892CBBF9D0003006A9 /* Client.swift */,
+				3A1B3B8D2CBBFCA8003006A9 /* CharacterUseCase.swift */,
+			);
+			path = Remote;
 			sourceTree = "<group>";
 		};
 		3ADC91222CBC99EA005174C8 /* Common */ = {
