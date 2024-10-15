@@ -35,6 +35,7 @@
 		3ADC7B6B2CBE42C10013AAAE /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC7B6A2CBE42C10013AAAE /* FavoriteViewModel.swift */; };
 		3ADC7B6D2CBE47F10013AAAE /* FavoriteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC7B6C2CBE47F10013AAAE /* FavoriteService.swift */; };
 		3ADC7B6F2CBE48110013AAAE /* FavoriteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC7B6E2CBE48110013AAAE /* FavoriteRepository.swift */; };
+		3ADC7B722CBE504E0013AAAE /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 3ADC7B612CBE3A520013AAAE /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		3ADC91262CBC9A4F005174C8 /* CharacterGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC91252CBC9A4F005174C8 /* CharacterGridView.swift */; };
 		3ADC91282CBC9A82005174C8 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC91272CBC9A82005174C8 /* CharacterCell.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,20 @@
 			remoteInfo = ShopliveAssignment;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3ADC7B732CBE504E0013AAAE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3ADC7B722CBE504E0013AAAE /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3A1B3B892CBBF9D0003006A9 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
@@ -341,6 +356,7 @@
 				3A40198D2CB942F2003794E3 /* Sources */,
 				3A40198E2CB942F2003794E3 /* Frameworks */,
 				3A40198F2CB942F2003794E3 /* Resources */,
+				3ADC7B732CBE504E0013AAAE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -548,6 +564,7 @@
 		3A4019BB2CB942F4003794E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -581,6 +598,7 @@
 		3A4019BC2CB942F4003794E3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
